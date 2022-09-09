@@ -2,9 +2,6 @@ import 'package:b4md_app/views/auth/login_screen.dart';
 import 'package:b4md_app/views/auth/sign_up.dart';
 import 'package:flutter/material.dart';
 
-import 'components/nav_bar.dart';
-import 'views/homepage.dart';
-
 void main() {
   runApp(const MyApp());
 }
@@ -19,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home:  RegisterScreen(),
+      home: LoginScreen(),
     );
   }
 }

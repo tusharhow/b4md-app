@@ -1,3 +1,4 @@
+import 'package:b4md_app/views/auth/sign_up.dart';
 import 'package:b4md_app/views/homepage.dart';
 import 'package:flutter/material.dart';
 
@@ -13,53 +14,18 @@ class LoginScreen extends StatelessWidget {
     return Scaffold(
         body: SingleChildScrollView(
       child: Column(
-        children: [ const SizedBox(height: kDefaultPadding *3),
+        children: [
+          const SizedBox(height: kDefaultPadding * 4),
           Image.asset(
             'assets/logos/logo.PNG',
-            width: 150,
-            height: 150,
-          ),
-          const SizedBox(height: kDefaultPadding * 2),
-          const Center(
-            child: Text(
-              'Welcome to B4MD',
-              style: TextStyle(
-                fontSize: 22,
-              ),
-            ),
+            width: 120,
+            height: 120,
           ),
           const SizedBox(height: kDefaultPadding + 5),
-          Align(
-            alignment: Alignment.centerLeft,
-            child: Padding(
-              padding: const EdgeInsets.only(left: kDefaultPadding),
-              child: Text(
-                'Login'.toUpperCase(),
-                style: const TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-          ),
-          const SizedBox(height: kDefaultPadding),
           Form(
             key: _formKey,
             child: Column(
               children: [
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: kDefaultPadding),
-                    child: Text(
-                      'Email'.toUpperCase(),
-                      style: const TextStyle(
-                        fontSize: 15,
-                      ),
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 10),
                 Padding(
                   padding:
                       const EdgeInsets.symmetric(horizontal: kDefaultPadding),
@@ -69,19 +35,7 @@ class LoginScreen extends StatelessWidget {
                       decoration: const InputDecoration(
                         contentPadding:
                             EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-                        hintText: 'Enter your email',
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Colors.grey,
-                            width: 1,
-                          ),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Colors.grey,
-                            width: 1,
-                          ),
-                        ),
+                        hintText: 'Email',
                       ),
                       validator: (value) {
                         if (value!.isEmpty) {
@@ -93,19 +47,6 @@ class LoginScreen extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 10),
-                Align(
-                  alignment: Alignment.centerLeft,
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: kDefaultPadding),
-                    child: Text(
-                      'password'.toUpperCase(),
-                      style: const TextStyle(
-                        fontSize: 15,
-                      ),
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 10),
                 Padding(
                   padding:
                       const EdgeInsets.symmetric(horizontal: kDefaultPadding),
@@ -115,13 +56,7 @@ class LoginScreen extends StatelessWidget {
                       decoration: const InputDecoration(
                         contentPadding:
                             EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-                        hintText: 'Enter your password',
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Colors.grey,
-                            width: 1,
-                          ),
-                        ),
+                        hintText: 'Password',
                         focusedBorder: OutlineInputBorder(
                           borderSide: BorderSide(
                             color: Colors.grey,
@@ -142,23 +77,42 @@ class LoginScreen extends StatelessWidget {
             ),
           ),
           const SizedBox(height: kDefaultPadding),
+          Align(
+            alignment: Alignment.centerRight,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
+              child: TextButton(
+                onPressed: () {},
+                child: const Text(
+                  'Forgot Password?',
+                  style: TextStyle(
+                    color: Colors.blue,
+                    fontSize: 15,
+                    decoration: TextDecoration.underline,
+                  ),
+                ),
+              ),
+            ),
+          ),
+          const SizedBox(height: kDefaultPadding),
           InkWell(
             onTap: () {
-              Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) {
+              Navigator.pushAndRemoveUntil(context,
+                  MaterialPageRoute(builder: (context) {
                 return const MyNevBar();
               }), (route) => false);
             },
             child: Container(
-              height: 60,
-              width: MediaQuery.of(context).size.width / 1.10,
+              height: 55,
+              width: MediaQuery.of(context).size.width / 1.40,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(5),
                 color: const Color(0xffFFB85C),
               ),
-              child: Center(
+              child: const Center(
                   child: Text(
-                'SIGN IN'.toUpperCase(),
-                style: const TextStyle(
+                'Login',
+                style: TextStyle(
                   fontSize: 18,
                   color: Colors.white,
                   fontWeight: FontWeight.w600,
@@ -167,11 +121,19 @@ class LoginScreen extends StatelessWidget {
             ),
           ),
           const SizedBox(height: kDefaultPadding),
+          const Center(
+            child: Text('Or',
+                style: TextStyle(
+                  color: Colors.black54,
+                  fontSize: 18,
+                )),
+          ),
+          const SizedBox(height: kDefaultPadding),
           InkWell(
             onTap: () {},
             child: Container(
-              height: 60,
-              width: MediaQuery.of(context).size.width / 1.10,
+              height: 55,
+              width: MediaQuery.of(context).size.width / 1.40,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(5),
                 color: Colors.white,
@@ -190,7 +152,7 @@ class LoginScreen extends StatelessWidget {
                   // ),
                   const SizedBox(width: kDefaultPadding),
                   const Text(
-                    'Sign in with Facebook',
+                    'Login with Facebook',
                     style: TextStyle(
                       fontSize: 17,
                       color: Colors.black54,
@@ -201,30 +163,44 @@ class LoginScreen extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(height: kDefaultPadding),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Text(
-                'Don\'t have an account?',
-                style: TextStyle(
-                  fontSize: 15,
-                  color: Colors.black54,
+          const SizedBox(height: kDefaultPadding * 4),
+          InkWell(
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return RegisterScreen();
+              }));
+            },
+            child: Container(
+              height: 55,
+              width: MediaQuery.of(context).size.width / 1.40,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(5),
+                color: Colors.white,
+                border: Border.all(
+                  color: Colors.black,
+                  width: 1,
                 ),
               ),
-              const SizedBox(width: 10),
-              InkWell(
-                onTap: () {},
-                child: Text(
-                  'Sign up'.toUpperCase(),
-                  style: const TextStyle(
-                    fontSize: 15,
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  // Image.asset(
+                  //   'assets/icons/google.png',
+                  //   height: 40,
+                  //   width: 40,
+                  // ),
+                  const SizedBox(width: kDefaultPadding),
+                  const Text(
+                    'Registration',
+                    style: TextStyle(
+                      fontSize: 17,
+                      color: Colors.black54,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                ),
+                ],
               ),
-            ],
+            ),
           ),
           const SizedBox(height: kDefaultPadding),
         ],
